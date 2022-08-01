@@ -1,7 +1,7 @@
 import axios from 'axios'
 //create and store axios object in http
 const http=axios.create({    
-   headers:{'contenttype':'application/json'},
+   headers:{'content-type':'application/json'},
     baseURL:'https://localhost:44344/'
 });
 
@@ -25,10 +25,7 @@ const getOUtwardOrder=()=>{
     return http.get('api/OutwardOrd'); //pass url of api controller endpoint
 }
 
-//Search Orders By Date
-// const getOutwardOrderByDate= date=>{
-//     return http.get('api/InwardOrder/GetInwardBySpec/'+date); //pass url of api controller endpoint
-// }
+
 
 const addNewOutward=Outwardobj=>{
     return http.post('AddOutward',Outwardobj);
@@ -38,8 +35,16 @@ const addNewOutward=Outwardobj=>{
 // const removeInward=id=>{
 //     return http.delete('api/InwardOrder/DeleteInward/'+id);
 // }
-
+const getOutwardById= Id=>{
+    return http.get('/api/OutwardOrd/'+Id); //pass url of api controller endpoint
+}
+const editOutward=(id,obj)=>{
+    return http.put(`/api/OutwardOrd/${id}/updateQty`,obj);
+}
+const removeOutward=id=>{
+    return http.delete(`/api/OutwardOrd/DeleteOutward/${id}`);
+}
 
 //let InwardService = {getInwardOrderByDate};
-let outwardService = {addNewOutward,getOUtwardOrder};//pass a obj that has a method invoke it from somewhere
+let outwardService = {addNewOutward,getOUtwardOrder,getOutwardById,editOutward,removeOutward};//pass a obj that has a method invoke it from somewhere
 export default outwardService ;

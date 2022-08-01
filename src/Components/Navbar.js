@@ -27,7 +27,7 @@ const Navbar=props=>{
                       <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                         <li><Link to='/Orders' className="dropdown-item">Orders</Link></li>
                         <li><Link to='/Customers' className="dropdown-item">Products</Link></li>
-                        <li><Link to='/Customers' className="dropdown-item">Customers</Link></li>
+                        <li><Link to='/Products' className="dropdown-item">Customers</Link></li>
                         <li><Link to='/Suppliers' className="dropdown-item">Suppliers</Link></li>
                       </ul>
                 </li>}
@@ -67,5 +67,3 @@ const Navbar=props=>{
     };
 export default Navbar;
 
-// {/* <a class="dropdown-item" href="/Inward">Inward</a> */}
-// {/* <Link to='/Inward' className="nav-link">Inward</Link> */}

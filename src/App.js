@@ -22,6 +22,8 @@ import Orders from './Components/Orders';
 import Products from './Components/Products';
 import Suppliers from './Components/Supplier';
 import StockBalance from './Components/StockBalance';
+import CreateOutward from './Components/CreateOutward';
+import { EditOutward } from './Components/EditOutward';
 
 
 
@@ -105,6 +107,8 @@ function App() {
          <Route path='/Products' element={<Products/>}/>
          <Route path='/Suppliers' element={<Suppliers/>}/>
          <Route path='/StockBalance' element={<StockBalance/>}/>
+         <Route path='/CreateOutward' element={<CreateOutward/>}/>
+         <Route path='/EditOutward/:id' element={<EditOutward/>}/>
          
 
        </Routes>

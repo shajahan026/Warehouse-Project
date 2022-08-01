@@ -23,24 +23,24 @@ const Outward = props=>{
 })
 
  //Delete Function
-//  const handleDelete=Id=>{
-//     //     const confirmDelete=window.confirm("The item will be deleted permanently,do u want to proceed?")
-//     //    if(confirmDelete)//confirm user wants to delete..
-//     //    {
-//          console.log(Id);
-//          const confirmDelete=window.confirm("The item will be deleted permanently,do u want to proceed?")
-//          if(confirmDelete)//confirm user wants to delete..
-//          {
-//          PurchaseOrderService.removePurchaseOrder(Id).then(response=>{
+ const handleDelete=Id=>{
+    //     const confirmDelete=window.confirm("The item will be deleted permanently,do u want to proceed?")
+    //    if(confirmDelete)//confirm user wants to delete..
+    //    {
+         console.log(Id);
+         const confirmDelete=window.confirm("The item will be deleted permanently,do u want to proceed?")
+         if(confirmDelete)//confirm user wants to delete..
+         {
+         outwardService.removeOutward(Id).then(response=>{
             
-//             console.log(response);
-//             alert("Order removed Successfully!");
-//             //setPurchaseOrder([...response.data]);
-//          }).catch(res => {
+            console.log(response);
+            alert("Order removed Successfully!");
+            
+         }).catch(res => {
 
-//             });
-//         }
-// }
+            });
+        }
+}
           
     return <div className="row">
         <div className="col-12">
@@ -58,10 +58,11 @@ const Outward = props=>{
                         <thead>
                             <tr>
                                 <th>Outward ID</th>
-                                <th>Full Name</th>
+                                <th>Customer ID</th>
                                 <th>Date Of Entry</th>
                                 <th>Quantity</th>
                                 <th>Product Name</th>
+                                
                                 
 
                             </tr>
@@ -71,15 +72,16 @@ const Outward = props=>{
                             {Outward.map( I =>
                                  <tr key={I.id}>
                                     <td>{I.id}</td>
-                                    <td>{I.fullname}</td>
+                                    <td>{I.c_Id}</td>
                                     <td>{I.dateOfEntry.slice(0,10)}</td>
                                     <td>{I.qty}</td>
                                     <td>{I.productName}</td>
                                     
+                                    
                             
                             
-                            <button className="btn bg-primary">Edit</button>
-                            <button className="btn bg-danger">Delete</button>
+                            <Link to={'/EditOutward/'+I.id}>Edit</Link>
+                            <button className="btn bg-danger" onClick={()=>handleDelete(I.id)}>Delete</button>
                             </tr>)}
                         </tbody>
                  </table>          
@@ -88,4 +90,3 @@ const Outward = props=>{
 
 export default Outward;
 
-//onClick={()=>handleDelete(I.id)}

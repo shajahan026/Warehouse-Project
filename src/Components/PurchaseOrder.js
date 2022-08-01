@@ -74,10 +74,9 @@ const PurchaseOrderTable = props=>{
                                     <td>{I.dateOfPurchase}</td>
                                     <td>{I.qty}</td>
                                     <td>{I.name}</td>
-                                    
+                                    <td><Link to={'/PurchaseOrder/'+I.id}>Details</Link></td>
                             
-                            
-                            <button className="btn bg-primary">Edit</button>
+                            <Link to={'/EditPurchaseOrder/'+I.id}>Edit</Link> | 
                             <button className="btn bg-danger" onClick={()=>handleDelete(I.id)}>Delete</button>
                             </tr>)}
                         </tbody>
@@ -87,3 +86,8 @@ const PurchaseOrderTable = props=>{
 
 export default PurchaseOrderTable;
 
+//     "id": 10,
+//     "productName": "Shampoo",
+//     "dateOfPurchase": "2022-07-13T18:16:49.98",
+//     "qty": 1,
+//     "name": "Harshitha"
